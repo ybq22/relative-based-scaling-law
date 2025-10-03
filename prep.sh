@@ -15,7 +15,6 @@ models=(
 export CUDA_VISIBLE_DEVICES=0
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
-export HF_HOME="/data-share/guest/yuebaoqing/.hf_cache"
 
 for model in "${models[@]}"; do
     output_dir="./gen_dataset/corpus/$dataset/$model"

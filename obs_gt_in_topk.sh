@@ -1,4 +1,3 @@
-export HF_HOME="/data-share/guest/yuebaoqing/.hf_cache"
 export CUDA_VISIBLE_DEVICES=0
 dataset="wikimedia/wikipedia"
 data_num=1000
