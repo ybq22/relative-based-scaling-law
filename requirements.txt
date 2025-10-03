@@ -1,0 +1,9 @@
+python==3.10.18
+numpy==2.2.6
+matplotlib==3.10.3
+scikit-learn==1.6.1
+powerlaw==1.5
+torch==2.3.1
+transformers==4.51.3
+tqdm==4.67.1
+datasets==4.0.0

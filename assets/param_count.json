@@ -1,0 +1,472 @@
+{
+    "EleutherAI/pythia-160m-deduped": {
+      "model_name": "EleutherAI/pythia-160m-deduped",
+      "total_params": 123689472,
+      "embedding_params": 38633472,
+      "non_embedding_params": 85056000,
+      "model_size": 0.16,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "EleutherAI/pythia-410m-deduped": {
+      "model_name": "EleutherAI/pythia-410m-deduped",
+      "total_params": 353822720,
+      "embedding_params": 51511296,
+      "non_embedding_params": 302311424,
+      "model_size": 0.41,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "facebook/opt-125m": {
+      "model_name": "facebook/opt-125m",
+      "total_params": 125239296,
+      "embedding_params": 40183296,
+      "non_embedding_params": 85056000,
+      "model_size": 0.125,
+      "model_label": "OPT",
+      "vocab_size": 50272
+    },
+    "facebook/opt-350m": {
+      "model_name": "facebook/opt-350m",
+      "total_params": 331196416,
+      "embedding_params": 27838464,
+      "non_embedding_params": 303357952,
+      "model_size": 0.35,
+      "model_label": "OPT",
+      "vocab_size": 50272
+    },
+    "facebook/opt-1.3b": {
+      "model_name": "facebook/opt-1.3b",
+      "total_params": 1315758080,
+      "embedding_params": 107155456,
+      "non_embedding_params": 1208602624,
+      "model_size": 1.3,
+      "model_label": "OPT",
+      "vocab_size": 50272
+    },
+    "facebook/opt-2.7b": {
+      "model_name": "facebook/opt-2.7b",
+      "total_params": 2651596800,
+      "embedding_params": 133944320,
+      "non_embedding_params": 2517652480,
+      "model_size": 2.7,
+      "model_label": "OPT",
+      "vocab_size": 50272
+    },
+    "facebook/opt-6.7b": {
+      "model_name": "facebook/opt-6.7b",
+      "total_params": 6658473984,
+      "embedding_params": 214310912,
+      "non_embedding_params": 6444163072,
+      "model_size": 6.7,
+      "model_label": "OPT",
+      "vocab_size": 50272
+    },
+    "EleutherAI/gpt-neo-125m": {
+      "model_name": "EleutherAI/gpt-neo-125m",
+      "total_params": 125198592,
+      "embedding_params": 40170240,
+      "non_embedding_params": 85028352,
+      "model_size": 0.125,
+      "model_label": "GPT-Neo",
+      "vocab_size": 50257
+    },
+    "distilbert/distilgpt2": {
+      "model_name": "distilbert/distilgpt2",
+      "total_params": 81912576,
+      "embedding_params": 39383808,
+      "non_embedding_params": 42528768,
+      "model_size": 0.082,
+      "model_label": "DistilGPT2",
+      "vocab_size": 50257
+    },
+    "Qwen/Qwen2.5-0.5B": {
+      "model_name": "Qwen/Qwen2.5-0.5B",
+      "total_params": 494032768,
+      "embedding_params": 136134656,
+      "non_embedding_params": 357898112,
+      "model_size": 0.5,
+      "model_label": "QWen2.5",
+      "vocab_size": 151936
+    },
+    "Qwen/Qwen2.5-1.5B": {
+      "model_name": "Qwen/Qwen2.5-1.5B",
+      "total_params": 1543714304,
+      "embedding_params": 233373696,
+      "non_embedding_params": 1310340608,
+      "model_size": 1.5,
+      "model_label": "QWen2.5",
+      "vocab_size": 151936
+    },
+    "Qwen/Qwen2.5-3B": {
+      "model_name": "Qwen/Qwen2.5-3B",
+      "total_params": 3085938688,
+      "embedding_params": 311164928,
+      "non_embedding_params": 2774773760,
+      "model_size": 3,
+      "model_label": "QWen2.5",
+      "vocab_size": 151936
+    },
+    "Qwen/Qwen2.5-7B": {
+      "model_name": "Qwen/Qwen2.5-7B",
+      "total_params": 7070619136,
+      "embedding_params": 544997376,
+      "non_embedding_params": 6525621760,
+      "model_size": 7,
+      "model_label": "QWen2.5",
+      "vocab_size": 152064
+    },
+    "Qwen/Qwen2.5-14B": {
+      "model_name": "Qwen/Qwen2.5-14B",
+      "total_params": 13991465984,
+      "embedding_params": 778567680,
+      "non_embedding_params": 13212898304,
+      "model_size": 14,
+      "model_label": "QWen2.5",
+      "vocab_size": 152064
+    },
+    "Qwen/Qwen2.5-32B": {
+      "model_name": "Qwen/Qwen2.5-32B",
+      "total_params": 31985308672,
+      "embedding_params": 778567680,
+      "non_embedding_params": 31206740992,
+      "model_size": 32,
+      "model_label": "QWen2.5",
+      "vocab_size": 152064
+    },
+    "Qwen/Qwen2.5-72B": {
+      "model_name": "Qwen/Qwen2.5-72B",
+      "total_params": 71460495360,
+      "embedding_params": 1245708288,
+      "non_embedding_params": 70214787072,
+      "model_size": 72,
+      "model_label": "QWen2.5",
+      "vocab_size": 152064
+    },
+    "meta-llama/Meta-Llama-3-8B": {
+      "model_name": "meta-llama/Meta-Llama-3-8B",
+      "total_params": 7504924672,
+      "embedding_params": 525336576,
+      "non_embedding_params": 6979588096,
+      "model_size": 8,
+      "model_label": "Llama3",
+      "vocab_size": 128256
+    },
+    "meta-llama/Meta-Llama-3-70B": {
+      "model_name": "meta-llama/Meta-Llama-3-70B",
+      "total_params": 69503033344,
+      "embedding_params": 1050673152,
+      "non_embedding_params": 68452360192,
+      "model_size": 70,
+      "model_label": "Llama3",
+      "vocab_size": 128256
+    },
+    "meta-llama/Llama-2-13b-hf": {
+      "model_name": "meta-llama/Llama-2-13b-hf",
+      "total_params": 12852024320,
+      "embedding_params": 163840000,
+      "non_embedding_params": 12688184320,
+      "model_size": 13,
+      "model_label": "Llama2",
+      "vocab_size": 32000
+    },
+    "meta-llama/Llama-2-7b-hf": {
+      "model_name": "meta-llama/Llama-2-7b-hf",
+      "total_params": 6607343616,
+      "embedding_params": 131072000,
+      "non_embedding_params": 6476271616,
+      "model_size": 7,
+      "model_label": "Llama2",
+      "vocab_size": 32000
+    },
+    "meta-llama/Llama-2-70b-hf": {
+      "model_name": "meta-llama/Llama-2-70b-hf",
+      "total_params": 68714504192,
+      "embedding_params": 262144000,
+      "non_embedding_params": 68452360192,
+      "model_size": 70,
+      "model_label": "Llama2",
+      "vocab_size": 32000
+    },
+    "openai-community/gpt2": {
+      "model_name": "openai-community/gpt2",
+      "total_params": 124439808,
+      "embedding_params": 39383808,
+      "non_embedding_params": 85056000,
+      "model_size": 0.124,
+      "model_label": "GPT2",
+      "vocab_size": 50257
+    },
+    "openai-community/gpt2-medium": {
+      "model_name": "openai-community/gpt2-medium",
+      "total_params": 354823168,
+      "embedding_params": 52511744,
+      "non_embedding_params": 302311424,
+      "model_size": 0.355,
+      "model_label": "GPT2",
+      "vocab_size": 50257
+    },
+    "openai-community/gpt2-large": {
+      "model_name": "openai-community/gpt2-large",
+      "total_params": 774030080,
+      "embedding_params": 65639680,
+      "non_embedding_params": 708390400,
+      "model_size": 0.774,
+      "model_label": "GPT2",
+      "vocab_size": 50257
+    },
+    "openai-community/gpt2-xl": {
+      "model_name": "openai-community/gpt2-xl",
+      "total_params": 1557611200,
+      "embedding_params": 82049600,
+      "non_embedding_params": 1475561600,
+      "model_size": 1.5,
+      "model_label": "GPT2",
+      "vocab_size": 50257
+    },
+    "huggyllama/llama-7b": {
+      "model_name": "huggyllama/llama-7b",
+      "total_params": 6607343616,
+      "embedding_params": 131072000,
+      "non_embedding_params": 6476271616,
+      "model_size": 7,
+      "model_label": "Llama1",
+      "vocab_size": 32000
+    },
+    "huggyllama/llama-65b": {
+      "model_name": "huggyllama/llama-65b",
+      "total_params": 65023516672,
+      "embedding_params": 262144000,
+      "non_embedding_params": 64761372672,
+      "model_size": 65,
+      "model_label": "Llama1",
+      "vocab_size": 32000
+    },
+    "microsoft/phi-2": {
+      "model_name": "microsoft/phi-2",
+      "total_params": 2648560640,
+      "embedding_params": 131072000,
+      "non_embedding_params": 2517488640,
+      "model_size": 2,
+      "model_label": "Phi-2",
+      "vocab_size": 51200
+    },
+    "meta-llama/Llama-3.2-1B": {
+      "model_name": "meta-llama/Llama-3.2-1B",
+      "total_params": 1235814400,
+      "embedding_params": 262668288,
+      "non_embedding_params": 973146112,
+      "model_size": 1,
+      "model_label": "Llama3.2",
+      "vocab_size": 128256
+    },
+    "meta-llama/Llama-3.2-3B": {
+      "model_name": "meta-llama/Llama-3.2-3B",
+      "total_params": 3212749824,
+      "embedding_params": 394002432,
+      "non_embedding_params": 2818747392,
+      "model_size": 3,
+      "model_label": "Llama3.2",
+      "vocab_size": 128256
+    },
+    "mistralai/Mistral-7B-v0.1": {
+      "model_name": "mistralai/Mistral-7B-v0.1",
+      "total_params": 7110660096,
+      "embedding_params": 131072000,
+      "non_embedding_params": 6979588096,
+      "model_size": 7,
+      "model_label": "Mistral",
+      "vocab_size": 32000
+    },
+    "baichuan-inc/Baichuan-M1-14B-Base": {
+      "model_name": "baichuan-inc/Baichuan-M1-14B-Base",
+      "total_params": 13789189920,
+      "embedding_params": 681574400,
+      "non_embedding_params": 13107615520,
+      "model_size": 14,
+      "model_label": "BaichuanM1",
+      "vocab_size": 133120
+    },
+    "THUDM/glm-4-9b": {
+      "model_name": "THUDM/glm-4-9b",
+      "total_params": 9399951360,
+      "embedding_params": 620756992,
+      "non_embedding_params": 8779194368,
+      "model_size": 9,
+      "model_label": "GLM4",
+      "vocab_size": 151552
+    },
+    "deepseek-ai/DeepSeek-V2-Lite": {
+      "model_name": "deepseek-ai/DeepSeek-V2-Lite",
+      "total_params": 15496769024,
+      "embedding_params": 209715200,
+      "non_embedding_params": 15287053824,
+      "model_size": 16,
+      "model_label": "DeepSeek-V2",
+      "vocab_size": 102400
+    },
+    "roneneldan/TinyStories-1M": {
+      "model_name": "roneneldan/TinyStories-1M",
+      "total_params": 3745984,
+      "embedding_params": 3347520,
+      "non_embedding_params": 398464,
+      "model_size": 0.001,
+      "model_label": "TinyStories",
+      "vocab_size": 50257
+    },
+    "roneneldan/TinyStories-3M": {
+      "model_name": "roneneldan/TinyStories-3M",
+      "total_params": 8278400,
+      "embedding_params": 6695040,
+      "non_embedding_params": 1583360,
+      "model_size": 0.003,
+      "model_label": "TinyStories",
+      "vocab_size": 50257
+    },
+    "roneneldan/TinyStories-8M": {
+      "model_name": "roneneldan/TinyStories-8M",
+      "total_params": 19702528,
+      "embedding_params": 13390080,
+      "non_embedding_params": 6312448,
+      "model_size": 0.008,
+      "model_label": "TinyStories",
+      "vocab_size": 50257
+    },
+    "EleutherAI/pythia-14m": {
+      "model_name": "EleutherAI/pythia-14m",
+      "total_params": 7628800,
+      "embedding_params": 6438912,
+      "non_embedding_params": 1189888,
+      "model_size": 0.014,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "EleutherAI/pythia-70m": {
+      "model_name": "EleutherAI/pythia-70m",
+      "total_params": 44670976,
+      "embedding_params": 25755648,
+      "non_embedding_params": 18915328,
+      "model_size": 0.07,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "EleutherAI/pythia-160m": {
+      "model_name": "EleutherAI/pythia-160m",
+      "total_params": 123689472,
+      "embedding_params": 38633472,
+      "non_embedding_params": 85056000,
+      "model_size": 0.16,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "EleutherAI/pythia-410m": {
+      "model_name": "EleutherAI/pythia-410m",
+      "total_params": 353822720,
+      "embedding_params": 51511296,
+      "non_embedding_params": 302311424,
+      "model_size": 0.41,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "openai-community/openai-gpt": {
+      "model_name": "openai-community/openai-gpt",
+      "total_params": 116534784,
+      "embedding_params": 31480320,
+      "non_embedding_params": 85054464,
+      "model_size": 0.12,
+      "model_label": "GPT1",
+      "vocab_size": 40478
+    },
+    "DeepSeek-V3-Base": {
+      "model_name": "DeepSeek-V3-Base",
+      "total_params": 671000000000,
+      "embedding_params": 900000000,
+      "non_embedding_params": 669200000000,
+      "model_size": 671,
+      "model_label": "DeepSeek-V3-Base",
+      "vocab_size": 129280
+    },
+    "deepseek-ai/DeepSeek-V3-Base": {
+      "model_name": "DeepSeek-V3-Base",
+      "total_params": 671000000000,
+      "embedding_params": 900000000,
+      "non_embedding_params": 669200000000,
+      "model_size": 671,
+      "model_label": "DeepSeek-V3-Base",
+      "vocab_size": 129280
+    },
+    "meta-llama/Llama-3.1-405B": {
+      "total_params": 403752042496,
+      "embedding_params": 2101346304,
+      "non_embedding_params": 401650696192,
+      "vocab_size": 128256,
+      "model_size": 405,
+      "model_label": "Llama-3.1"
+    },
+    "meta-llama/Llama-4-Maverick-17B-128E": {
+      "total_params": 399677363200,
+      "embedding_params": 1034485760,
+      "non_embedding_params": 398642877440,
+      "vocab_size": 202048
+    },
+    "meta-llama/Llama-4-Scout-17B-16E": {
+      "total_params": 106735375360,
+      "embedding_params": 1034485760,
+      "non_embedding_params": 105700889600,
+      "vocab_size": 202048
+    },
+    "EleutherAI/pythia-31m": {
+      "model_name": "EleutherAI/pythia-31m",
+      "total_params": 17616896,
+      "embedding_params": 12877824,
+      "non_embedding_params": 4739072,
+      "model_size": 0.031,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "EleutherAI/pythia-1b": {
+      "model_name": "EleutherAI/pythia-1b",
+      "total_params": 908759040,
+      "embedding_params": 103022592,
+      "non_embedding_params": 805736448,
+      "model_size": 1,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "EleutherAI/pythia-1.4b": {
+      "model_name": "EleutherAI/pythia-1.4b",
+      "total_params": 1311625216,
+      "embedding_params": 103022592,
+      "non_embedding_params": 1208602624,
+      "model_size": 1.4,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "EleutherAI/pythia-2.8b": {
+      "model_name": "EleutherAI/pythia-2.8b",
+      "total_params": 2646430720,
+      "embedding_params": 128778240,
+      "non_embedding_params": 2517652480,
+      "model_size": 2.8,
+      "model_label": "Pythia",
+      "vocab_size": 50304
+    },
+    "EleutherAI/pythia-6.9b": {
+      "model_name": "EleutherAI/pythia-6.9b",
+      "total_params": 6650732544,
+      "embedding_params": 206569472,
+      "non_embedding_params": 6444163072,
+      "model_size": 6.9,
+      "model_label": "Pythia",
+      "vocab_size": 50432
+    },
+    "EleutherAI/pythia-12b": {
+      "model_name": "EleutherAI/pythia-12b",
+      "total_params": 11586549760,
+      "embedding_params": 259522560,
+      "non_embedding_params": 11327027200,
+      "model_size": 12,
+      "model_label": "Pythia",
+      "vocab_size": 50688
+    }
+  }

@@ -1,4 +1,4 @@
-import argparse,os,json,torch,math
+import argparse,os,json,torch
 import numpy as np
 from torch.utils.data import Dataset
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -17,15 +17,6 @@ class MemmapPseudoDataset(Dataset):
             shape=tuple(inputs_meta["shape"]),
             dtype=np.uint32,
         )
-        preds_meta = json.load(open(os.path.join(data_dir, "preds_int.mmp.json")))
-        self.preds = np.memmap(
-            os.path.join(data_dir, "preds_int.mmp"),
-            mode="r",
-            shape=tuple(preds_meta["shape"]),
-            dtype=np.uint32,
-        )
-        if self.inputs.shape != self.preds.shape:
-            raise ValueError("Shape mismatch between inputs and preds.")
         self.length = self.inputs.shape[0] if limit is None else min(limit, self.inputs.shape[0])
         self.seq_len = self.inputs.shape[1]
         self.pad_token_id = pad_token_id
@@ -51,7 +42,6 @@ def parse_args():
     p.add_argument("--output_dir", type=str, required=True)
     p.add_argument("--data_num", type=int, default=None)
     p.add_argument("--deterministic", action="store_true")
-    p.add_argument("--use_raw_wikipedia", action="store_true")
     return p.parse_args()
 
 def main():
@@ -61,9 +51,7 @@ def main():
         np.random.seed(42)
         torch.use_deterministic_algorithms(True)
 
-    # topk 用于 log10 轴近似均匀
-    topk_list = [1, 2, 3, 5, 7, 10, 18, 30, 50, 78, 100, 200, 336, 500, 886, 1438, 2500, 3793, 6158, 10000]
-    topk_list += [20000, 30000, 40000, 50000]
+    topk_list = [1, 10, 100, 1000, 10000] # you may change this to your interested k values
 
     Path(args.output_dir).mkdir(parents=True, exist_ok=True)
 
@@ -78,24 +66,17 @@ def main():
 
     def collate(batch):
         input_ids = torch.stack([x["input_ids"] for x in batch]).to(device)
-        attention_mask = torch.stack([x["attention_mask"] for x in batch]).to(device)
         labels = torch.stack([x["labels"] for x in batch]).to(device)
+        attention_mask = torch.stack([x["attention_mask"] for x in batch]).to(device)
         return input_ids, labels, attention_mask
 
-    # 存放不同 topk 的指标
     all_metrics = {}
     for tk in topk_list:
         all_metrics[tk] = {
             "results": [],
             "p_gt": [],
-            "sum_of_topk_p": [],
-            "p_gt_divide_sum_of_topk_p": [],
             "indicator": [],
-            "indicator_multiply_p_gt_divide_sum_of_topk_p": [],
-            "ind_divide_sum_of_topk_p": []
         }
-
-    eps = 1e-12  # log stability
     global_topk_max = max(topk_list)
 
     for idx in tqdm(range(0, Len, args.batch_size), desc="Evaluating Batches"):
@@ -108,9 +89,7 @@ def main():
         probs = torch.softmax(logits, dim=-1)
         vocab_size = probs.size(-1)
         kmax = min(global_topk_max, vocab_size)
-        if kmax <= 0:
-            raise RuntimeError("vocab_size <= 0 ?")
-
+        
         topk_kmax_probs, topk_kmax_indices = torch.topk(probs, k=kmax, dim=-1)
         target_logits = logits.gather(-1, labels.unsqueeze(-1)).squeeze(-1)
         rank = (logits > target_logits.unsqueeze(-1)).sum(-1) + 1
@@ -133,7 +112,6 @@ def main():
             topk_probs = topk_kmax_probs[..., :k]
             topk_indices = topk_kmax_indices[..., :k]
 
-            correct_probs = topk_probs.sum(dim=-1)
             is_correct = (labels.unsqueeze(-1) == topk_indices).any(dim=-1)
             res = all_metrics[topk]
 
@@ -142,7 +120,6 @@ def main():
             for i in range(B):
                 mask_i = valid_mask[i]
                 if mask_i.any():
-                    v = correct_probs[i][mask_i]
                     valid_pos_idx = torch.nonzero(mask_i, as_tuple=False).squeeze(-1)
                     for kpos_idx, seq_pos in enumerate(valid_pos_idx):
                         j = int(seq_pos.item())
@@ -151,21 +128,13 @@ def main():
                             int(positions[i, j].cpu()),
                             float(ce_loss[i, j].cpu())
                         ))
-                        mp = float(correct_probs[i, j].cpu())
-                        gt_prob = float(probs[i, j, labels[i, j]].cpu())  # ground truth 概率
-                        topk_sum_prob = float(topk_probs[i, j].sum().cpu()) + eps
-                        p_gt_divide_sum_of_topk_p = gt_prob / topk_sum_prob
+                        gt_prob = float(probs[i, j, labels[i, j]].cpu())
                         indicator = 1 if bool(is_correct[i, j].cpu()) else 0
-                        indicator_multiply_p_gt_divide_sum_of_topk_p = p_gt_divide_sum_of_topk_p if bool(is_correct[i, j].cpu()) else 0.0
 
                         res["p_gt"].append(gt_prob)
-                        res["sum_of_topk_p"].append(topk_sum_prob)
-                        res["p_gt_divide_sum_of_topk_p"].append(p_gt_divide_sum_of_topk_p) # 这个是topk采样放缩后的概率
-                        res["indicator"].append(indicator) # gt是否在topk中的概率
-                        res["indicator_multiply_p_gt_divide_sum_of_topk_p"].append(indicator_multiply_p_gt_divide_sum_of_topk_p) # 这个是要优化的概率
-                        res["ind_divide_sum_of_topk_p"].append(indicator / topk_sum_prob)
+                        res["indicator"].append(indicator)
 
-    # ========== 保存 metrics ==========
+    # ========== save metrics ==========
     for topk in topk_list:
         res = all_metrics[topk]
         results_np = np.array(res["results"])
@@ -175,12 +144,7 @@ def main():
             "mean_ce_loss": mean_ce
         }
         metrics["mean_p_gt"] = float(f"{np.mean(res['p_gt']):.6f}")
-        metrics["mean_sum_of_topk_p"] = float(f"{np.mean(res['sum_of_topk_p']):.6f}")
-        metrics["mean_p_gt_divide_sum_of_topk_p"] = float(f"{np.mean(res['p_gt_divide_sum_of_topk_p']):.6f}")
-        metrics["mean_indicator"] = float(f"{np.mean(res['indicator']):.6f}")
-        metrics["mean_indicator_multiply_p_gt_divide_sum_of_topk_p"] = float(f"{np.mean(res['indicator_multiply_p_gt_divide_sum_of_topk_p']):.6f}")
-        metrics["mean_ind_divide_sum_of_topk_p"] = float(f"{np.mean(res['ind_divide_sum_of_topk_p']):.6f}")
-        
+        metrics[f"RBP_{topk}"] = float(f"{np.mean(res['indicator']):.6f}")
         
         topk_dir = os.path.join(args.output_dir, f"top{topk}")
         Path(topk_dir).mkdir(parents=True, exist_ok=True)
