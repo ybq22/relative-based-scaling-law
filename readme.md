@@ -40,4 +40,4 @@
 
 ## Appendix
 
-We are sorry to say that the derivation of origns of two scaling laws have some issues and we have updated the proof in [proof.pdf](proof.pdf). Thank you for understanding.
+We are sorry to say that the derivation of origns of two scaling laws have some issues and we have updated the proof in a new version of our paper: [new-version.pdf](new-version.pdf). Several other minor adjustments have also been made in this version of paper. Thank you for understanding.
