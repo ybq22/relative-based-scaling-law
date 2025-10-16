@@ -71,7 +71,7 @@ def load_different_datasets(dataset_name):
         data = Dataset.from_list(samples)
         field_key = "text"
     elif dataset_name == "monology/pile-uncopyrighted/Github":
-        dataset_local_dir = "/data-share/guest/yuebaoqing/vsmoe/data/Github"
+        dataset_local_dir = "your_dataset_dir"
         data = load_dataset(dataset_local_dir, split="validation",
                             data_files={"validation": [os.path.join(dataset_local_dir, "test.jsonl.zst"),os.path.join(dataset_local_dir, "val.jsonl.zst")]})
         print(f"Loaded {len(data)} samples from {dataset_name}")
