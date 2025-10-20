@@ -111,7 +111,7 @@ def plot_F_vs_S(model_sizes, topk, seq_N_list): # Explain Emergence Phenomenon
     x = np.log(model_sizes).reshape(-1, 1)
     S = np.array(model_sizes)
 
-    metrics = collect_metrics(topk)
+    metrics = collect_metrics(topk, dataset_name="wikimedia/wikipedia", base_result_dir="eval_N")
 
     plt.figure(figsize=(6, 4))
     for n in seq_N_list:
