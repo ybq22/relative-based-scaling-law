@@ -81,7 +81,7 @@ Other datasets are loaded directly from HuggingFace Hub.
 
    Run `./obs_N.sh` and `python plot.py` to observe emergence phenomenon in Section 5.1.
 
-   ![emergence.png](/assets/emergence.png)
+  
    
    
    Run `python hypo.py` to validate our hypothesis towards a unified explanation of scaling laws.
