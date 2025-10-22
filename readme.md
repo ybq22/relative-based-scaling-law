@@ -68,13 +68,15 @@ Other datasets are loaded directly from HuggingFace Hub.
    You can specify your models and datasets in this bash script. Default topk_list is 
 
    `[1, 10, 100, 1000, 10000]`, you can change to your own in [`src/obs_gt_in_topk.py`](src/obs_gt_in_topk.py)
+   Scaling Result is like ![RBP_vs_S.png](/assets/RBP_vs_S.png)
+
    
 
-4. **Visualization**
+5. **Visualization**
 
    Run `python plot.py` , and the generated plots will be stored in [`assets`](assets) folder.
 
-5. **Application in Section 5**
+6. **Application in Section 5**
 
    Run `./obs_N.sh` and `python plot.py` to observe emergence phenomenon in Section 5.1.
    
