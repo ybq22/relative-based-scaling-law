@@ -68,7 +68,8 @@ Other datasets are loaded directly from HuggingFace Hub.
    You can specify your models and datasets in this bash script. Default topk_list is 
 
    `[1, 10, 100, 1000, 10000]`, you can change to your own in [`src/obs_gt_in_topk.py`](src/obs_gt_in_topk.py)
-   Scaling Result is like ![RBP_vs_S.png](/assets/RBP_vs_S.png)
+   
+   ![RBP_vs_S.png](/assets/RBP_vs_S.png)
 
    
 
@@ -79,10 +80,13 @@ Other datasets are loaded directly from HuggingFace Hub.
 6. **Application in Section 5**
 
    Run `./obs_N.sh` and `python plot.py` to observe emergence phenomenon in Section 5.1.
+
+   ![emergence.png](/assets/emergence.png)
+   
    
    Run `python hypo.py` to validate our hypothesis towards a unified explanation of scaling laws.
 
-
+   ![gpt2_rank_dist.png](/assets/gpt2_rank_dist.png)
 
 
 
