@@ -1,10 +1,5 @@
 # Relative-Based Scaling Law for Neural Language Models
 
-> Anonymous authors — ICLR 2026 submission  
-> **Note:** This repository is anonymized for double-blind review. No author or affiliation information is included.
-
----
-
 ## Overview
 
 This repository provides code for the paper *Relative-Based Scaling Law for Neural Language Models*.  
@@ -90,13 +85,6 @@ Other datasets are loaded directly from HuggingFace Hub.
 
 
 
-## Citation (anonymous for review)
+## Citation 
 
-```bibtex
-@inproceedings{anonymous2026rbpscaling,
-  title     = {Relative-Based Scaling Law for Neural Language Models},
-  author    = {Anonymous},
-  booktitle = {International Conference on Learning Representations (ICLR)},
-  year      = {2026}
-}
-```
+Coming soon.
